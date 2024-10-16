@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invernadero Inteligente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Invernadero Inteligente</h1>
+
+    <img id="iconoGrifo" src="grifo_cerrado.png" alt="Grifo cerrado" class="icono-grifo">
+
+    <div class="datos">
+        <div class="icono-dato">
+            <i class="fas fa-thermometer-half"></i>
+            <div>
+                <strong>Temperatura:</strong> <span id="temperatura">0 °C</span>
+            </div>
+        </div>
+        <div class="barra-progreso barra-temperatura">
+            <div class="lineaSegura" style="left: 29%;"></div> <!-- Línea para 15°C -->
+            <div class="lineaSegura" style="left: 40%;"></div> <!-- Línea para 20°C -->
+            <div id="barraTemperatura" class="progreso" style="width: 100%;"></div> <!-- Ajusta el ancho como desees -->
+            <div id="marcadorTemperatura" class="marcador_temperatura"><i class="fas fa-sort-down"></i></div> <!-- Marcador de temperatura -->
+        </div>
+
+        <div class="etiquetas-barra">
+            <span class="etiqueta-frio">Frio</span>
+            <span class="etiqueta-temperatura">0°</span> <!-- Etiqueta para 0° -->
+            <!-- Slider de temperatura -->
+            <input type="range" id="sliderTemperatura" min="0" max="50" value="0" step="1" onchange="actualizarTemperatura()" />
+            <span class="etiqueta-temperatura">50°</span> <!-- Etiqueta para 50° -->
+            <span class="etiqueta-calor">Calor</span>
+        </div>
+
+    </div>
+
+    <div class="datos">
+        <div class="icono-dato">
+            <i class="fas fa-tint"></i>
+            <div>
+                <strong>Humedad:</strong> <span id="humedad">...</span>
+            </div>
+        </div>
+        <div class="barra-progreso barra-humedad">
+            <div class="lineaSegura" style="left: 65%;"></div> <!-- Línea para 65% -->
+            <div class="lineaSegura" style="left: 75%;"></div> <!-- Línea para 75% -->
+            <div id="barraHumedad" class="progreso" style="width: 100%;"></div>
+            <div id="marcadorHumedad" class="marcador_humedad"><i class="fas fa-sort-down"></i></div> <!-- Marcador de humedad -->
+        </div>
+        <div class="etiquetas-barra">
+            <span class="etiqueta-seco">Seco</span>
+            <span>0%</span>
+            <input type="range" id="sliderHumedad" min="0" max="100" value="0" step="1" onchange="actualizarHumedad()" />
+            <span>100%</span>
+            <span class="etiqueta-humedo">Húmedo</span>
+        </div>
+    </div>
+    
+    
+    <div class="datos">
+        <div class="icono-dato">
+            <i class="fas fa-flask"></i>
+            <div>
+                <strong>pH:</strong> <span id="ph">...</span>
+            </div>
+        </div>
+        <div class="barra-progreso barra-ph">
+            <div class="lineaSegura" style="left: 42.86%;"></div> <!-- Línea para 6 -->
+            <div class="lineaSegura" style="left: 50%;"></div> <!-- Línea para 7 -->
+            <div id="barraPh" class="progreso" style="width: 100%;"></div> <!-- Ajusta el ancho como desees -->
+            <div id="marcadorPh" class="marcador_ph"><i class="fas fa-sort-down"></i></div> <!-- Marcador de pH -->
+        </div>
+        <div class="etiquetas-barra">
+            <span class="etiqueta-acido">Ácido</span>
+            <span>Neutro</span>
+            <span class="etiqueta-alcalino">Alcalino</span>
+        </div>
+
+    </div>
+
+    <button class="btn-abrir" id="botonToggle" onclick="alternarBoton()">Abrir Llave</button>
+
+
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
