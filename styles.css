@@ -1,0 +1,301 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.contenedor {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.icono-dato {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.icono-dato i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.icono-dato div {
+    text-align: center;
+}
+
+.icono-grifo {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+}
+
+
+
+.btn-abrir.rojo {
+    background-color: #f44336;
+}
+
+.btn-abrir:hover {
+    background-color: gray;
+}
+
+.barra-progreso {
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 10px; /* Espacio adicional para las barras */
+    margin-bottom: 10px;
+}
+
+.barra-temperatura .progreso {
+    background: linear-gradient(to right, blue, #00FF00, red); /* Colores predeterminados */
+}
+
+.barra-humedad .progreso {
+    background: linear-gradient(to right, 
+                                #8B4513,    /* Seco (0-30%) - Marrón oscuro */
+                                #FFA500,    /* Moderado bajo (31-50%) - Naranja */
+                                #90EE90,    /* Moderado (51-70%) - Verde claro */
+                                #006400,    /* Moderado alto (71-85%) - Verde oscuro */
+                                #0000FF);   /* Húmedo (86-100%) - Azul */
+}
+
+
+
+.barra-ph .progreso {
+    background: linear-gradient(to right, 
+                                red,           /* Ácido fuerte */
+                                orange,        /* Ácido medio */
+                                yellow,        /* Ácido débil */
+                                green,         /* Neutro */
+                                lightblue,     /* Básico débil */
+                                blue,          /* Básico fuerte */
+                                purple);       /* Muy alcalino */
+}
+
+.progreso {
+    height: 100%;
+    width: 100%; /* Las barras llenas al 100% de su ancho */
+    border-radius: 5px;
+}
+
+.etiquetas-barra-temperatura {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-top: 2%;
+}
+.etiquetas-barra-humedad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Ajustes para el slider */
+#sliderTemperatura {
+    width: 50%; /* Ajustar el ancho para que no ocupe toda la línea */
+    margin: 0 auto; /* Centrar el slider */
+    display: block;
+}
+
+.etiqueta-cero {
+    position: absolute;
+    left: 22%; /* Ajustar para que quede cerca del slider */
+    transform: translateX(-50%);
+}
+
+.etiqueta-cincuenta {
+    position: absolute;
+    right: 20.5%; /* Ajustar para que quede cerca del slider */
+    transform: translateX(50%);
+}
+
+/* Posicionar las etiquetas de "Frío" y "Calor" */
+.etiqueta-frio {
+    position: absolute;
+    left: 0;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: -4%;
+}
+
+.etiqueta-calor {
+    position: absolute;
+    right: 0;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: -4%;
+}
+
+
+
+.etiquetas-barra-ph {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+
+.etiqueta-acido,
+.etiqueta-alcalino {
+    margin-top: -1%;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+
+
+
+.etiqueta-seco,
+.etiqueta-humedo {
+    margin-top: -1%;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+
+.marcador_temperatura {
+    position: absolute; /* Asegura que el marcador esté posicionado dentro de la barra */
+    top: -38px; /* Ajusta la altura del marcador */
+    left: 100%; /* Por defecto, al final de la barra */
+    transform: translateX(-50%); /* Centra la flecha en el borde */
+    font-size: 50px; /* Tamaño del marcador */
+    transition: left 0.3s ease; /* Animación suave al mover */
+}
+
+
+.marcador_humedad {
+    position: absolute; /* Asegura que el marcador esté posicionado dentro de la barra */
+    top: -38px; /* Ajusta la altura del marcador */
+    left: 100%; /* Por defecto, al final de la barra */
+    transform: translateX(-50%); /* Centra la flecha en el borde */
+    font-size: 50px; /* Tamaño del marcador */
+    transition: left 0.3s ease; /* Animación suave al mover */
+}
+
+.marcador_ph {
+    position: absolute; /* Asegura que el marcador esté posicionado dentro de la barra */
+    top: -38px; /* Ajusta la altura del marcador */
+    left: 100%; /* Por defecto, al final de la barra */
+    transform: translateX(-50%); /* Centra la flecha en el borde */
+    font-size: 50px; /* Tamaño del marcador */
+    transition: left 0.3s ease; /* Animación suave al mover */
+}
+
+
+@keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.parpadeo {
+    animation: parpadeo 1s infinite; /* Cambia 1s por la duración del parpadeo deseada */
+}
+
+
+.valor {
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+
+}
+
+/* Estilos para las líneas de la zona segura */
+.lineaSegura {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: black;
+    opacity: 1;
+}
+
+.temperatura, .humedad, .ph {
+    color: #28b463;
+    font-size: 18px;
+}
+
+.control-button-abierto {
+    margin-bottom: 3%;
+    padding: 5px 5px; /* Tamaño del botón */
+    font-size: 20px; /* Tamaño del texto */
+    border: 1px solid #004d00; /* Borde del botón */
+    background-color: white; /* Color de fondo */
+    color: green; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Transición suave para cambios de estilo */
+    display: flex; /* Habilita Flexbox */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.966); /* Sombra para el efecto 3D */
+}
+
+/* Efecto al pasar el ratón */
+.control-button-abierto:hover, .control-button-cerrado:hover {
+    background-color: #004d00; /* Cambia el color de fondo al pasar el ratón */
+    color: white; /* Cambia el color del texto */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada para el efecto 3D */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Efecto al hacer clic */
+.control-button:active {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra más pequeña al hacer clic */
+    transform: scale(1); /* Restablece el tamaño al hacer clic */
+}
+
+.icono-boton {
+    width: 30px; /* Tamaño de la imagen */
+    height: 30px;
+    margin-right: 0px; /* Espacio entre la imagen y el texto */
+}
+
+.control-button-cerrado{
+    margin-bottom: 3%;
+    padding: 5px 5px; /* Tamaño del botón */
+    font-size: 20px; /* Tamaño del texto */
+    border: 1px solid white; /* Borde del botón */
+    background-color: red; /* Color de fondo */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Transición suave para cambios de estilo */
+    display: flex; /* Habilita Flexbox */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.966); /* Sombra para el efecto 3D */
+}
